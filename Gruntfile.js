@@ -14,14 +14,32 @@ module.exports = function (grunt) {
   configuration.bump = {
     options: {
       commitFiles: [
-        'build/angular-arithmetic.es5.js',
-        'build/angular-arithmetic.es5.js.map',
-        'build/angular-arithmetic.js',
+        'angular-parentchild.es5.js',
         'CHANGELOG.md',
         'package.json'
       ],
       commitMessage: 'chore: release v%VERSION%',
       pushTo: '<%= gitRemote %>'
+    }
+  };
+
+  /**
+   * Bundle the AngularJS components using browserify
+   */
+  configuration.browserify = {
+    dist: {
+      files: {
+        'build/angular-parentchild.es5.js': [
+          'components/**/*.js',
+          '!components/**/*.unit.js'
+        ]
+      },
+      options: {
+        transform: [
+          ['babelify', {presets: ['es2015']}],
+          ['stringify', {appliesTo: {includeExtensions: ['.html']}}]
+        ]
+      }
     }
   };
 
@@ -42,17 +60,6 @@ module.exports = function (grunt) {
     release: {
       src: 'CHANGELOG.md'
     }
-  };
-
-  /**
-   * Copy the Angular arithmetic component for external use
-   */
-  configuration.copy = {
-    components: {
-      files: {
-        'build/angular-arithmetic.js': 'components/arithmetic/arithmetic.js'
-      }
-    },
   };
 
   /**
@@ -111,8 +118,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'test',
-    'babel',
-    'copy'
+    'browserify'
   ]);
 
   /**
@@ -156,8 +162,8 @@ module.exports = function (grunt) {
   // -----------------------------------------------------------------------------------------------
   // Dependencies
 
-  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');

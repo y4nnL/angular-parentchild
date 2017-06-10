@@ -1,5 +1,12 @@
 <div class="parent">
-    <span class="parent_name">{{parent.name}}</span>
+    <span class="parent_name">{{parent.name}}</span> has
+    <ng-pluralize class="parent_count"
+                  count="parent.count"
+                  when="{
+                    '0' : 'no children',
+                    'one' : '1 child',
+                    'other' : '{} children'
+                  }"></ng-pluralize>
     <child ng-repeat="childName in parent.children track by $index"
            name="childName"
            on-call="parent.onChildCall(childName)"></child>

@@ -6,6 +6,9 @@ import component from './parent.component';
 
 const moduleName = 'parent';
 const moduleDeps = [
+  // Vendors
+  'arithmetic',
+  // Components
   child,
 ];
 

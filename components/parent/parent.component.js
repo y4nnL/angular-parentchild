@@ -19,7 +19,7 @@ const bindings = {
 
 class ParentComponentController {
 
-  constructor() {
+  constructor(arithmetic) {
     /**
      * The parent's name
      * @type {string}
@@ -35,12 +35,26 @@ class ParentComponentController {
      * @type {string[]}
      */
     this.childCalls = [];
+    /**
+     * Count the children
+     * @type {number}
+     */
+    this.count = 0;
+    /**
+     * Demonstrate the angular-arithmetic dependency flagged as external
+     * @type {ArithmeticService}
+     */
+    this.arithmetic = arithmetic;
   }
 
   /**
    * Implement this lifecycle hook since we use one-way bindings
    */
   $onChanges() {
+    this.count = 0;
+    this.children.forEach(() => {
+      this.count = this.arithmetic.add(this.count, 1);
+    });
     this.childCalls = [];
   }
 

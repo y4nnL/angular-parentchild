@@ -105,7 +105,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Module
 
 var moduleName = 'parent';
-var moduleDeps = [_child2.default];
+var moduleDeps = [
+// Vendors
+'arithmetic',
+// Components
+_child2.default];
 
 angular.module(moduleName, moduleDeps).component(moduleName, _parent2.default);
 
@@ -115,7 +119,7 @@ angular.module(moduleName, moduleDeps).component(moduleName, _parent2.default);
 exports.default = moduleName;
 
 },{"../child":3,"./parent.component":6}],5:[function(require,module,exports){
-module.exports = "<div class=\"parent\">\n    <span class=\"parent_name\">{{parent.name}}</span>\n    <child ng-repeat=\"childName in parent.children track by $index\"\n           name=\"childName\"\n           on-call=\"parent.onChildCall(childName)\"></child>\n    <div class=\"parent_childCall\"\n         ng-repeat=\"childName in parent.childCalls track by $index\">\n        {{parent.name}} has received {{childName}}'s call\n    </div>\n</div>\n";
+module.exports = "<div class=\"parent\">\n    <span class=\"parent_name\">{{parent.name}}</span> has\n    <ng-pluralize class=\"parent_count\"\n                  count=\"parent.count\"\n                  when=\"{\n                    '0' : 'no children',\n                    'one' : '1 child',\n                    'other' : '{} children'\n                  }\"></ng-pluralize>\n    <child ng-repeat=\"childName in parent.children track by $index\"\n           name=\"childName\"\n           on-call=\"parent.onChildCall(childName)\"></child>\n    <div class=\"parent_childCall\"\n         ng-repeat=\"childName in parent.childCalls track by $index\">\n        {{parent.name}} has received {{childName}}'s call\n    </div>\n</div>\n";
 
 },{}],6:[function(require,module,exports){
 'use strict';
@@ -152,7 +156,7 @@ var bindings = {
 // Component controller
 
 var ParentComponentController = function () {
-  function ParentComponentController() {
+  function ParentComponentController(arithmetic) {
     _classCallCheck(this, ParentComponentController);
 
     /**
@@ -170,6 +174,16 @@ var ParentComponentController = function () {
      * @type {string[]}
      */
     this.childCalls = [];
+    /**
+     * Count the children
+     * @type {number}
+     */
+    this.count = 0;
+    /**
+     * Demonstrate the angular-arithmetic dependency flagged as external
+     * @type {ArithmeticService}
+     */
+    this.arithmetic = arithmetic;
   }
 
   /**
@@ -180,6 +194,12 @@ var ParentComponentController = function () {
   _createClass(ParentComponentController, [{
     key: '$onChanges',
     value: function $onChanges() {
+      var _this = this;
+
+      this.count = 0;
+      this.children.forEach(function () {
+        _this.count = _this.arithmetic.add(_this.count, 1);
+      });
       this.childCalls = [];
     }
 

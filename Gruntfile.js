@@ -82,6 +82,7 @@ module.exports = function (grunt) {
         },
         files: [
           'node_modules/angular/angular.js',
+          'node_modules/angular-arithmetic/build/angular-arithmetic.es5.js',
           'node_modules/angular-mocks/angular-mocks.js',
           'components/**/*.js'
         ],

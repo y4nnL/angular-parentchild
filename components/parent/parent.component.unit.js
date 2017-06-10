@@ -92,4 +92,21 @@ describe('parent', () => {
     expect(parentElement.find('button').length).toBe(2);
     expect(parentElement[0].querySelectorAll('.parent_childCall').length).toBe(0);
   });
+
+  it('should show a pluralized child count', () => {
+    expect(parentElement[0].querySelector('.parent_count').textContent.trim()).toBe('3 children');
+    expect(parentController.count).toBe(3);
+    scope.children = ['Kevin', 'Steven'];
+    scope.$digest();
+    expect(parentElement[0].querySelector('.parent_count').textContent.trim()).toBe('2 children');
+    expect(parentController.count).toBe(2);
+    scope.children = ['Kevin'];
+    scope.$digest();
+    expect(parentElement[0].querySelector('.parent_count').textContent.trim()).toBe('1 child');
+    expect(parentController.count).toBe(1);
+    scope.children = [];
+    scope.$digest();
+    expect(parentElement[0].querySelector('.parent_count').textContent.trim()).toBe('no children');
+    expect(parentController.count).toBe(0);
+  });
 });

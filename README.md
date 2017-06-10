@@ -13,6 +13,7 @@ angular.module('myApplication', [parentchild]);
 Or as a `<script>` tag into your `index.html` file:
 ```html
 <script src="node_modules/angular-parentchild/build/angular-parentchild.es5.js"></script>
+<script src="node_modules/angular-arithmetic/build/angular-arithmetic.es5.js"></script>
 ```
 # Documentation
 This module exposes two `parent` and `child` components available for html inclusion

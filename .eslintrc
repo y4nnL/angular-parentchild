@@ -1,0 +1,13 @@
+{
+  "extends" : "airbnb-base",
+  "env" : {
+    "jasmine" : true
+  },
+  "plugins" : [
+    "jasmine"
+  ],
+  "globals" : {
+    "angular" : false,
+    "inject" : false
+  }
+}

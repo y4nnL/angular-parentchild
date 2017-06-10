@@ -1,0 +1,56 @@
+{
+  "scripts" : {
+    "test" : "grunt test"
+  },
+  "devDependencies" : {
+    "angular-mocks" : "1.6.4",
+    "babel-preset-es2015" : "6.24.1",
+    "eslint" : "3.19.0",
+    "eslint-config-airbnb-base" : "11.2.0",
+    "eslint-plugin-import" : "2.3.0",
+    "eslint-plugin-jasmine" : "2.2.0",
+    "grunt" : "1.0.1",
+    "grunt-babel" : "6.0.0",
+    "grunt-bump": "0.8.0",
+    "grunt-contrib-clean" : "1.1.0",
+    "grunt-contrib-copy" : "1.0.0",
+    "grunt-contrib-watch" : "1.0.0",
+    "grunt-conventional-changelog": "6.1.0",
+    "grunt-eslint" : "19.0.0",
+    "grunt-karma" : "2.0.0",
+    "jasmine-core" : "2.6.3",
+    "karma" : "1.7.0",
+    "karma-babel-preprocessor" : "6.0.1",
+    "karma-jasmine" : "1.1.0",
+    "karma-phantomjs-launcher" : "1.0.4"
+  },
+  "dependencies" : {
+    "angular" : "1.6.4"
+  },
+  "name" : "angular-arithmetic",
+  "description" : "Four methods for basic arithmetic operations exposed as AngularJS service",
+  "version" : "1.0.1",
+  "main" : "index.js",
+  "repository" : {
+    "type" : "git",
+    "url" : "git+https://github.com/y4nnL/angular-arithmetic.git"
+  },
+  "keywords" : [
+    "angular",
+    "angularjs",
+    "arithmetic",
+    "operation"
+  ],
+  "author" : "Yann LOJEWSKI <yann.lojewski@gmail.com> (https://github.com/y4nnL)",
+  "license" : "ISC",
+  "licenses" : [
+    {
+      "type" : "ISC",
+      "url" : "https://github.com/y4nnL/angular-arithmetic/blob/master/LICENSE"
+    }
+  ],
+  "bugs" : {
+    "url" : "https://github.com/y4nnL/angular-arithmetic/issues"
+  },
+  "homepage" : "https://github.com/y4nnL/angular-arithmetic#readme"
+}

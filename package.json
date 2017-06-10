@@ -35,7 +35,7 @@
   },
   "name": "angular-parentchild",
   "description": "A components parent/child organisation in AngularJS",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",

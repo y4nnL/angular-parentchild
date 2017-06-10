@@ -1,42 +1,27 @@
 module.exports = function (grunt) {
 
   var configuration = {
-    gitRemote : 'origin'
+    gitRemote: 'origin'
   };
 
   // -----------------------------------------------------------------------------------------------
   // Plugin tasks
 
   /**
-   * Transpile the AngularJS arithmetic component using Babel
-   */
-  configuration.babel = {
-    options : {
-      sourceMap : true,
-      presets : ['es2015']
-    },
-    components : {
-      files : {
-        'build/angular-arithmetic.es5.js' : 'components/arithmetic/arithmetic.js'
-      }
-    }
-  };
-
-  /**
    * Bump the package.json version property and commit the built artifacts
    * @see "release-major", "release-minor", "release-patch" registered tasks below
    */
   configuration.bump = {
-    options : {
-      commitFiles : [
+    options: {
+      commitFiles: [
         'build/angular-arithmetic.es5.js',
         'build/angular-arithmetic.es5.js.map',
         'build/angular-arithmetic.js',
         'CHANGELOG.md',
         'package.json'
       ],
-      commitMessage : 'chore: release v%VERSION%',
-      pushTo : '<%= gitRemote %>'
+      commitMessage: 'chore: release v%VERSION%',
+      pushTo: '<%= gitRemote %>'
     }
   };
 
@@ -49,13 +34,13 @@ module.exports = function (grunt) {
    * Generate a CHANGELOG.md file based on the Angular commit message conventions
    */
   configuration.conventionalChangelog = {
-    options : {
-      changelogOpts : {
-        preset : 'angular'
+    options: {
+      changelogOpts: {
+        preset: 'angular'
       }
     },
-    release : {
-      src : 'CHANGELOG.md'
+    release: {
+      src: 'CHANGELOG.md'
     }
   };
 
@@ -63,9 +48,9 @@ module.exports = function (grunt) {
    * Copy the Angular arithmetic component for external use
    */
   configuration.copy = {
-    components : {
-      files : {
-        'build/angular-arithmetic.js' : 'components/arithmetic/arithmetic.js'
+    components: {
+      files: {
+        'build/angular-arithmetic.js': 'components/arithmetic/arithmetic.js'
       }
     },
   };
@@ -74,7 +59,7 @@ module.exports = function (grunt) {
    * Lint the ES6 components
    */
   configuration.eslint = {
-    components : [
+    components: [
       'components/**/*.js'
     ]
   };
@@ -83,23 +68,25 @@ module.exports = function (grunt) {
    * Run a karma instance to unit test the AngularJS components
    */
   configuration.karma = {
-    components : {
-      options : {
-        preprocessors : {
-          'components/**/*.js' : ['babel'],
+    components: {
+      options: {
+        preprocessors: {
+          'components/**/*.js': ['browserify']
         },
-        files : [
+        files: [
           'node_modules/angular/angular.js',
           'node_modules/angular-mocks/angular-mocks.js',
           'components/**/*.js'
         ],
-        browsers : ['PhantomJS'],
-        frameworks : ['jasmine'],
-        singleRun : true,
-        babelPreprocessor : {
-          options : {
-            presets : ['es2015']
-          }
+        browsers: ['PhantomJS'],
+        frameworks: ['browserify', 'jasmine'],
+        singleRun: true,
+        browserify: {
+          debug: true,
+          transform: [
+            ['babelify', {presets: ['es2015']}],
+            ['stringify', {appliesTo: {includeExtensions: ['.html']}}]
+          ]
         }
       }
     }
@@ -109,9 +96,9 @@ module.exports = function (grunt) {
    * Watch for components changes
    */
   configuration.watch = {
-    components : {
-      files : 'components/**/*.js',
-      tasks : 'test'
+    components: {
+      files: 'components/**/*.js',
+      tasks: 'test'
     }
   };
 

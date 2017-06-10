@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   configuration.bump = {
     options: {
       commitFiles: [
-        'angular-parentchild.es5.js',
+        'build/angular-parentchild.es5.js',
         'CHANGELOG.md',
         'package.json'
       ],

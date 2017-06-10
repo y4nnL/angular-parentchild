@@ -1,2 +1,2 @@
-require('./build/angular-arithmetic.es5');
-module.exports = 'arithmetic';
+require('./build/angular-parentchild.es5');
+module.exports = 'parent';

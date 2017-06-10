@@ -31,30 +31,31 @@
   "dependencies": {
     "angular": "1.6.4"
   },
-  "name": "angular-arithmetic",
-  "description": "Four methods for basic arithmetic operations exposed as AngularJS service",
-  "version": "1.0.1",
+  "name": "angular-parentchild",
+  "description": "A components parent/child organisation in AngularJS",
+  "version": "0.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/y4nnL/angular-arithmetic.git"
+    "url": "git+https://github.com/y4nnL/angular-parentchild.git"
   },
   "keywords": [
     "angular",
     "angularjs",
-    "arithmetic",
-    "operation"
+    "parent",
+    "child",
+    "organisation"
   ],
   "author": "Yann LOJEWSKI <yann.lojewski@gmail.com> (https://github.com/y4nnL)",
   "license": "ISC",
   "licenses": [
     {
       "type": "ISC",
-      "url": "https://github.com/y4nnL/angular-arithmetic/blob/master/LICENSE"
+      "url": "https://github.com/y4nnL/angular-parentchild/blob/master/LICENSE"
     }
   ],
   "bugs": {
-    "url": "https://github.com/y4nnL/angular-arithmetic/issues"
+    "url": "https://github.com/y4nnL/angular-parentchild/issues"
   },
-  "homepage": "https://github.com/y4nnL/angular-arithmetic#readme"
+  "homepage": "https://github.com/y4nnL/angular-parentchild#readme"
 }

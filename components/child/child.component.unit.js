@@ -29,8 +29,6 @@ describe('child', () => {
     expect(childController.name).toBeTruthy();
     expect(childController.name).toBe('John');
     expect(childElement.text().trim()).toBe('John');
-    console.log(childElement.find('button'));
-    console.log(childElement.find('button').triggerHandler);
     childElement.find('button').triggerHandler('click');
     expect(scope.onChildCall).toHaveBeenCalled();
   });

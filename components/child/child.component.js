@@ -8,6 +8,10 @@ const bindings = {
    * @see {ChildComponentController.name}
    */
   name: '<',
+  /**
+   * @see {ChildComponentController.call}
+   */
+  call: '<onCall',
 };
 
 // -------------------------------------------------------------------------------------------------
@@ -20,6 +24,11 @@ class ChildComponentController {
      * @type {string}
      */
     this.name = '';
+    /**
+     * Call the "on-call" html attribute as expression
+     * @type {function}
+     */
+    this.call = angular.noop;
   }
 }
 

@@ -1,33 +1,27 @@
-[![Build Status](https://travis-ci.org/y4nnL/angular-arithmetic.svg?branch=master)](https://travis-ci.org/y4nnL/angular-arithmetic)
+[![Build Status](https://travis-ci.org/y4nnL/angular-parentchild.svg?branch=master)](https://travis-ci.org/y4nnL/angular-parentchild)
 # Install
-You can install this package with `npm`
+You can install this package with `npm`:
 ```sh
-$ npm install angular-arithmetic
+$ npm install angular-parentchild
 ```
-Then add `arithmetic` as a dependency for your application:
+Then add `parentchild` as a dependency for your application:
 ```javascript
-import arithmetic from 'angular-arithmetic';
+import parentchild from 'angular-parentchild';
 
-angular.module('myApplication', [arithmetic]);
+angular.module('myApplication', [parentchild]);
 ```
 Or as a `<script>` tag into your `index.html` file:
 ```html
-<script src="node_modules/angular-arithmetic/build/angular-arithmetic.es5.js"></script>
+<script src="node_modules/angular-parentchild/build/angular-parentchild.es5.js"></script>
 ```
 # Documentation
-This module exposes a `arithmetic` service available for dependency injection with the following methods
-```javascript
-// Add n1 to n2
-arithmetic.add(n1:number, n2:number):number
+This module exposes two `parent` and `child` components available for html inclusion
+```html
+<!-- parent component -->
+<parent name="string" children="string[]">
 
-// Subtract n2 from n1
-arithmetic.subtract(n1:number, n2:number):number
-
-// Multiply n1 by n2
-arithmetic.multiply(n1:number, n2:number):number
-
-// Divide n1 by n2
-arithmetic.divide(n1:number, n2:number):number
+<!-- child component -->
+<child name="string" on-call="expression()">
 ```
 # License
 ISC License

@@ -11,7 +11,7 @@ const bindings = {
   /**
    * @see {ChildComponentController.call}
    */
-  call: '<onCall',
+  call: '&onCall',
 };
 
 // -------------------------------------------------------------------------------------------------

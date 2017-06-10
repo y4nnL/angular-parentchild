@@ -1,0 +1,10 @@
+<div class="parent">
+    <span class="parent_name">{{parent.name}}</span>
+    <child ng-repeat="childName in parent.children track by $index"
+           name="childName"
+           on-call="parent.onChildCall(childName)"></child>
+    <div class="parent_childCall"
+         ng-repeat="childName in parent.childCalls track by $index">
+        {{parent.name}} has received {{childName}}'s call
+    </div>
+</div>

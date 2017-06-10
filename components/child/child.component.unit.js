@@ -1,4 +1,4 @@
-describe('Child', () => {
+describe('child', () => {
   /**
    * @type {Object}
    */
